@@ -66,6 +66,7 @@ coverage/
 *~
 
 # Dependencies lock files (keep one that you use)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+
+ package-lock.json
+ yarn.lock
+ pnpm-lock.yaml
