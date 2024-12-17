@@ -1,8 +1,8 @@
 /*!
  * Thorium Initialization for framework7 projects
- * Version 3.2.0 november, 2021
- * framework7 v6.x (https://framework7.io) MIT Licensed
- * Copyright 2018-2021 Thorium builder, All Rights Reserved.
+ * Version 3.3.0 december, 2024
+ * framework7 v8.x (https://framework7.io) MIT Licensed
+ * Copyright 2018-2024 Thorium builder, All Rights Reserved.
 */
 const kDebugMessagesLevel= 1;
 const kHybridAppsLog = true;
@@ -95,10 +95,7 @@ const kRedirect="follow"; //manual, follow, error
 const kReferrerpolicy="no-referrer"; //no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
 const kAuthorization=""; //'Authorization': 'Basic xxxxx'
 
-
-
-
-var $ = Dom7; 
+var $ = Framework7.$; 
 var routes = [
 {
     path: '/',
@@ -111,183 +108,180 @@ var routes = [
 },
 ];
 
-
-
-
 var theme = 'auto';
 if (document.location.search.indexOf('theme=') >= 0) {
     theme = document.location.search.split('theme=')[1].split('&')[0];
 }
+
 var app = new Framework7({
-    "version": "1.0.0",
-    "id": "za.co.yellowpencil",
-    "root": "#app",
-    "theme": theme,
-    "autoDarkTheme": false,
-    "language": "en",
-    "routes": routes,
-    "name": "Yellow Pencil",
-    "initOnDeviceReady": true,
-    "init": true,
-    "iosTranslucentBars": true,
-    "iosTranslucentModals": true,
-    "touch": {
-        "disableContextMenu": true,
-        "tapHold": false,
-        "tapHoldDelay": 2,
-        "tapHoldPreventClicks": false,
-        "activeState": true,
-        "activeStateElements": "a, button, label, span, .actions-button",
-        "materialRipple": true,
-        "iosTouchRipple": false,
-        "materialRippleElements": ".ripple, .link, .item-link, .links-list a, .button, button, .input-clear-button, .dialog-button, .tab-link, .item-radio, .item-checkbox, .actions-button, .searchbar-disable-button, .fab a, .checkbox, .radio, .data-table .sortable-cell, .notification-close-button"
+    version: "1.0.0",
+    id: "za.co.yellowpencil",
+    el: "#app",
+    theme: theme,
+    darkMode: 'auto',
+    language: "en",
+    routes: routes,
+    name: "Yellow Pencil",
+    initOnDeviceReady: true,
+    init: true,
+    ios: {
+        translucentBars: true,
+        translucentModals: true
     },
-    "clicks": {
-        "externalLinks": ".external"
+    touch: {
+        disableContextMenu: true,
+        tapHold: false,
+        tapHoldDelay: 2,
+        tapHoldPreventClicks: false,
+        activeState: true,
+        activeStateElements: "a, button, label, span, .actions-button",
+        materialRipple: true,
+        iosTouchRipple: false,
+        materialRippleElements: ".ripple, .link, .item-link, .links-list a, .button, button, .input-clear-button, .dialog-button, .tab-link, .item-radio, .item-checkbox, .actions-button, .searchbar-disable-button, .fab a, .checkbox, .radio, .data-table .sortable-cell, .notification-close-button"
     },
-    "statusbar": {
-        "enabled": "true",
-        "overlay": "auto",
-        "scrollTopOnClick": true,
-        "iosOverlaysWebView": true,
-        "iosTextColor": "yellow",
-        "iosBackgroundColor": "black",
-        "materialBackgroundColor": null
+    clicks: {
+        externalLinks: ".external"
     },
-    "view": {
-        "main": true,
-        "router": true,
-        "reloadAll": true,
-        "stackPages": true,
-        "reloadPages": false,
-        "reloadDetail": true,
-        "keepAlive": false,
-        "linksView": null,
-        "xhrCache": true,
-        "xhrCacheIgnore": [],
-        "xhrCacheIgnoreGetParameters": false,
-        "xhrCacheDuration": 600000,
-        "preloadPreviousPage": true,
-        "uniqueHistory": false,
-        "uniqueHistoryIgnoreGetParameters": false,
-        "allowDuplicateUrls": false,
-        "removeElements": true,
-        "removeElementsWithTimeout": false,
-        "removeElementsTimeout": 0,
-        "restoreScrollTopOnBack": true,
-        "unloadTabContent": true,
-        "iosSwipeBack": true,
-        "iosSwipeBackAnimateShadow": true,
-        "iosSwipeBackAnimateOpacity": false,
-        "iosSwipeBackActiveArea": 30,
-        "iosSwipeBackThreshold": 0,
-        "pushState": false,
-        "pushStateAnimate": true,
-        "pushStateAnimateOnLoad": true,
-        "pushStateSeparator": "#!",
-        "pushStateOnLoad": false,
-        "animate": true,
-        "animateWithJS": false,
-        "iosDynamicNavbar": false,
-        "iosSeparateDynamicNavbar": true,
-        "iosAnimateNavbarBackIcon": true,
-        "iosPageLoadDelay": 0,
-        "materialPageLoadDelay": 0
+    statusbar: {
+        enabled: true,
+        overlay: "auto",
+        scrollTopOnClick: true,
+        iosOverlaysWebView: true,
+        iosTextColor: "yellow",
+        iosBackgroundColor: "black"
     },
-    "navbar": {
-        "scrollTopOnTitleClick": true,
-        "iosCenterTitle": true,
-        "hideOnPageScroll": false,
-        "showOnPageScrollEnd": true,
-        "showOnPageScrollTop": true
+    view: {
+        main: true,
+        router: true,
+        reloadAll: true,
+        stackPages: true,
+        reloadPages: false,
+        reloadDetail: true,
+        keepAlive: false,
+        linksView: null,
+        xhrCache: true,
+        xhrCacheIgnore: [],
+        xhrCacheIgnoreGetParameters: false,
+        xhrCacheDuration: 600000,
+        preloadPreviousPage: true,
+        uniqueHistory: false,
+        uniqueHistoryIgnoreGetParameters: false,
+        allowDuplicateUrls: false,
+        removeElements: true,
+        removeElementsWithTimeout: false,
+        removeElementsTimeout: 0,
+        restoreScrollTopOnBack: true,
+        unloadTabContent: true,
+        iosSwipeBack: true,
+        iosSwipeBackAnimateShadow: true,
+        iosSwipeBackAnimateOpacity: false,
+        iosSwipeBackActiveArea: 30,
+        iosSwipeBackThreshold: 0,
+        browserHistory: true,
+        browserHistoryAnimate: true,
+        browserHistoryAnimateOnLoad: true,
+        browserHistorySeparator: '#!',
+        browserHistoryOnLoad: false,
+        animate: true,
+        animateWithJS: false,
+        iosDynamicNavbar: false,
+        iosSeparateDynamicNavbar: true,
+        iosAnimateNavbarBackIcon: true,
+        iosPageLoadDelay: 0,
+        materialPageLoadDelay: 0
     },
-    "toolbar": {
-        "hideOnPageScroll": false,
-        "showOnPageScrollEnd": true,
-        "showOnPageScrollTop": true
+    navbar: {
+        scrollTopOnTitleClick: true,
+        iosCenterTitle: true,
+        hideOnPageScroll: false,
+        showOnPageScrollEnd: true
     },
-    "modal": {
-        "moveToRoot": true,
-        "queueDialogs": true
+    toolbar: {
+        hideOnPageScroll: false,
+        showOnPageScrollEnd: true,
+        showOnPageScrollTop: true
     },
-    "dialog": {
-        "buttonOk": "OK",
-        "buttonCancel": "Cancel",
-        "usernamePlaceholder": "Username",
-        "passwordPlaceholder": "Password",
-        "preloaderTitle": "Loading... ",
-        "progressTitle": "Loading... ",
-        "closeByBackdropClick": false
+    modal: {
+        moveToRoot: true,
+        queueDialogs: true
     },
-    "popup": {
-        "backdrop": true,
-        "closeByBackdropClick": true
+    dialog: {
+        buttonOk: "OK",
+        buttonCancel: "Cancel",
+        usernamePlaceholder: "Username",
+        passwordPlaceholder: "Password",
+        preloaderTitle: "Loading... ",
+        progressTitle: "Loading... ",
+        closeByBackdropClick: false
     },
-    "popover": {
-        "closeByBackdropClick": true,
-        "closeByOutsideClick": true,
-        "backdrop": true
+    popup: {
+        backdrop: true,
+        closeByBackdropClick: true
     },
-    "actions": {
-        "convertToPopover": true,
-        "forceToPopover": false,
-        "closeByBackdropClick": true,
-        "render": null,
-        "renderPopover": null,
-        "backdrop": true
+    popover: {
+        closeByBackdropClick: true,
+        closeByOutsideClick: true,
+        backdrop: true
     },
-    "sheet": {
-        "closeByBackdropClick": true,
-        "closeByOutsideClick": false
+    actions: {
+        convertToPopover: true,
+        forceToPopover: false,
+        closeByBackdropClick: true,
+        render: null,
+        renderPopover: null,
+        backdrop: true
     },
-    "toast": {
-        "icon": null,
-        "text": null,
-        "position": "bottom",
-        "closeButton": false,
-        "closeButtonColor": null,
-        "closeButtonText": "Ok",
-        "closeTimeout": null,
-        "cssClass": null,
-        "render": null
+    sheet: {
+        closeByBackdropClick: true,
+        closeByOutsideClick: false
     },
-    "sortable": false,
-    "swipeout": {
-        "actionsNoFold": false,
-        "noFollow": false,
-        "removeElements": true,
-        "removeElementsWithTimeout": false,
-        "removeElementsTimeout": 0
+    toast: {
+        icon: null,
+        text: null,
+        position: "bottom",
+        closeButton: false,
+        closeButtonText: "Ok",
+        closeTimeout: null,
+        cssClass: null,
+        render: null
     },
-    "panel": {
-        "leftBreakpoint": 0,
-        "rightBreakpoint": 0,
-        "swipeActiveArea": 0,
-        "swipeCloseOpposite": true,
-        "swipeOnlyClose": true,
-        "swipeNoFollow": false,
-        "swipeThreshold": 0,
-        "closeByBackdropClick": true
+    sortable: false,
+    swipeout: {
+        actionsNoFold: false,
+        noFollow: false,
+        removeElements: true,
+        removeElementsWithTimeout: false,
+        removeElementsTimeout: 0
     },
-    "input": {
-        "scrollIntoViewOnFocus": false,
-        "scrollIntoViewCentered": false
+    panel: {
+        leftBreakpoint: 0,
+        rightBreakpoint: 0,
+        swipeActiveArea: 0,
+        swipeCloseOpposite: true,
+        swipeOnlyClose: true,
+        swipeNoFollow: false,
+        swipeThreshold: 0,
+        closeByBackdropClick: true
     },
-    "smartSelect": {
-        "openIn": "page",
-        "pageBackLinkText": "Back",
-        "popupCloseLinkText": "Close",
-        "sheetCloseLinkText": "Done",
-        "searchbar": false,
-        "searchbarPlaceholder": "Search",
-        "searchbarDisableText": "Cancel",
-        "closeOnSelect": false,
-        "virtualList": false,
-        "routableModals": true,
-        "url": "select/"
+    input: {
+        scrollIntoViewOnFocus: false,
+        scrollIntoViewCentered: false
     },
-    "calendar": {
-        "monthNames": [
+    smartSelect: {
+        openIn: "page",
+        pageBackLinkText: "Back",
+        popupCloseLinkText: "Close",
+        sheetCloseLinkText: "Done",
+        searchbar: false,
+        searchbarPlaceholder: "Search",
+        searchbarDisableText: "Cancel",
+        closeOnSelect: false,
+        virtualList: false,
+        routableModals: true,
+        url: "select/"
+    },
+    calendar: {
+        monthNames: [
             "January",
             "February",
             "March",
@@ -301,7 +295,7 @@ var app = new Framework7({
             "November",
             "December"
         ],
-        "monthNamesShort": [
+        monthNamesShort: [
             "Jan",
             "Feb",
             "Mar",
@@ -315,7 +309,7 @@ var app = new Framework7({
             "Nov",
             "Dec"
         ],
-        "dayNames": [
+        dayNames: [
             "Sunday",
             "Monday",
             "Tuesday",
@@ -324,7 +318,7 @@ var app = new Framework7({
             "Friday",
             "Saturday"
         ],
-        "dayNamesShort": [
+        dayNamesShort: [
             "Sun",
             "Mon",
             "Tue",
@@ -333,189 +327,190 @@ var app = new Framework7({
             "Fri",
             "Sat"
         ],
-        "firstDay": 1,
-        "weekendDays": [
+        firstDay: 1,
+        weekendDays: [
             0,
             6
         ],
-        "multiple": false,
-        "rangePicker": false,
-        "dateFormat": kDateFormat,
-        "direction": "horizontal",
-        "minDate": null,
-        "maxDate": null,
-        "disabled": null,
-        "events": null,
-        "rangesClasses": null,
-        "touchMove": true,
-        "animate": true,
-        "closeOnSelect": false,
-        "monthSelector": true,
-        "yearSelector": true,
-        "weekHeader": true,
-        "value": null,
-        "containerEl": null,
-        "openIn": "auto",
-        "formatValue": null,
-        "inputEl": null,
-        "inputReadOnly": false,
-        "closeByOutsideClick": true,
-        "scrollToInput": true,
-        "header": false,
-        "headerPlaceholder": "Select date",
-        "footer": false,
-        "toolbar": true,
-        "toolbarCloseText": "Done",
-        "cssClass": null,
-        "routableModals": true,
-        "view": null,
-        "url": "date/",
-        "renderWeekHeader": null,
-        "renderMonths": null,
-        "renderMonth": null,
-        "renderMonthSelector": null,
-        "renderYearSelector": null,
-        "renderHeader": null,
-        "renderFooter": null,
-        "renderToolbar": null,
-        "renderInline": null,
-        "renderPopover": null,
-        "renderSheet": null,
-        "render": null
+        multiple: false,
+        rangePicker: false,
+        dateFormat: kDateFormat,
+        direction: "horizontal",
+        minDate: null,
+        maxDate: null,
+        disabled: null,
+        events: null,
+        rangesClasses: null,
+        touchMove: true,
+        animate: true,
+        closeOnSelect: false,
+        monthSelector: true,
+        yearSelector: true,
+        weekHeader: true,
+        value: null,
+        containerEl: null,
+        openIn: "auto",
+        formatValue: null,
+        inputEl: null,
+        inputReadOnly: false,
+        closeByOutsideClick: true,
+        scrollToInput: true,
+        header: false,
+        headerPlaceholder: "Select date",
+        footer: false,
+        toolbar: true,
+        toolbarCloseText: "Done",
+        cssClass: null,
+        routableModals: true,
+        view: null,
+        url: "date/",
+        renderWeekHeader: null,
+        renderMonths: null,
+        renderMonth: null,
+        renderMonthSelector: null,
+        renderYearSelector: null,
+        renderHeader: null,
+        renderFooter: null,
+        renderToolbar: null,
+        renderInline: null,
+        renderPopover: null,
+        renderSheet: null,
+        render: null
     },
-    "picker": {
-        "updateValuesOnMomentum": false,
-        "updateValuesOnTouchmove": true,
-        "rotateEffect": false,
-        "momentumRatio": 7,
-        "freeMode": false,
-        "cols": [],
-        "containerEl": null,
-        "openIn": "auto",
-        "formatValue": null,
-        "inputEl": null,
-        "inputReadOnly": true,
-        "closeByOutsideClick": true,
-        "scrollToInput": true,
-        "toolbar": true,
-        "toolbarCloseText": "Done",
-        "cssClass": null,
-        "routableModals": true,
-        "view": null,
-        "url": "select/",
-        "renderColumn": null,
-        "renderToolbar": null,
-        "renderInline": null,
-        "renderPopover": null,
-        "renderSheet": null,
-        "render": null
+    picker: {
+        updateValuesOnMomentum: false,
+        updateValuesOnTouchmove: true,
+        rotateEffect: false,
+        momentumRatio: 7,
+        freeMode: false,
+        cols: [],
+        containerEl: null,
+        openIn: "auto",
+        formatValue: null,
+        inputEl: null,
+        inputReadOnly: true,
+        closeByOutsideClick: true,
+        scrollToInput: true,
+        toolbar: true,
+        toolbarCloseText: "Done",
+        cssClass: null,
+        routableModals: true,
+        view: null,
+        url: "select/",
+        renderColumn: null,
+        renderToolbar: null,
+        renderInline: null,
+        renderPopover: null,
+        renderSheet: null,
+        render: null
     },
-    "lazy": {
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXCwsK592mkAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==",
-        "threshold": 0,
-        "sequential": true
+    lazy: {
+        placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXCwsK592mkAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==",
+        threshold: 0,
+        sequential: true
     },
-    "photoBrowser": {
-        "photos": [],
-        "exposition": true,
-        "expositionHideCaptions": false,
-        "type": "standalone",
-        "navbar": true,
-        "toolbar": true,
-        "theme": "light",
-        "swipeToClose": true,
-        "backLinkText": "Close",
-        "navbarOfText": "of",
-        "url": "photos/",
-        "routableModals": true,
-        "virtualSlides": true,
-        "swiper": {
-            "initialSlide": 0,
-            "spaceBetween": 20,
-            "speed": 300,
-            "loop": false,
-            "preloadImages": true,
-            "navigation": {
-                "nextEl": ".photo-browser-next",
-                "prevEl": ".photo-browser-prev"
+    photoBrowser: {
+        photos: [],
+        exposition: true,
+        expositionHideCaptions: false,
+        type: "standalone",
+        navbar: true,
+        toolbar: true,
+        theme: "light",
+        swipeToClose: true,
+        backLinkText: "Close",
+        navbarOfText: "of",
+        url: "photos/",
+        routableModals: true,
+        virtualSlides: true,
+        swiper: {
+            initialSlide: 0,
+            spaceBetween: 20,
+            speed: 300,
+            loop: false,
+            preloadImages: true,
+            navigation: {
+                nextEl: ".photo-browser-next",
+                prevEl: ".photo-browser-prev"
             },
-            "zoom": {
-                "enabled": true,
-                "maxRatio": 3,
-                "minRatio": 1
+            zoom: {
+                enabled: true,
+                maxRatio: 3,
+                minRatio: 1
             },
-            "lazy": {
-                "enabled": true
+            lazy: {
+                enabled: true
             }
         }
     },
-    "notification": {
-        "icon": null,
-        "title": null,
-        "titleRightText": null,
-        "subtitle": null,
-        "text": null,
-        "closeButton": false,
-        "closeTimeout": null,
-        "closeOnClick": false,
-        "swipeToClose": true,
-        "cssClass": null,
-        "render": null
+    notification: {
+        icon: null,
+        title: null,
+        titleRightText: null,
+        subtitle: null,
+        text: null,
+        closeButton: false,
+        closeButtonText: "Ok",
+        closeTimeout: null,
+        closeOnClick: false,
+        swipeToClose: true,
+        cssClass: null,
+        render: null
     },
-    "autocomplete": {
-        "typeahead": false,
-        "highlightMatches": true,
-        "expandInput": false,
-        "updateInputValueOnSelect": true,
-        "multiple": false,
-        "valueProperty": "id",
-        "textProperty": "text",
-        "openIn": "page",
-        "pageBackLinkText": "Back",
-        "popupCloseLinkText": "Close",
-        "searchbarPlaceholder": "Search...",
-        "searchbarDisableText": "Cancel",
-        "animate": true,
-        "autoFocus": false,
-        "closeOnSelect": false,
-        "notFoundText": " Nothing found",
-        "requestSourceOnOpen": false,
-        "preloader": false,
-        "routableModals": true,
-        "url": "select"
+    autocomplete: {
+        typeahead: false,
+        highlightMatches: true,
+        expandInput: false,
+        updateInputValueOnSelect: true,
+        multiple: false,
+        valueProperty: "id",
+        textProperty: "text",
+        openIn: "page",
+        pageBackLinkText: "Back",
+        popupCloseLinkText: "Close",
+        searchbarPlaceholder: "Search...",
+        searchbarDisableText: "Cancel",
+        animate: true,
+        autoFocus: false,
+        closeOnSelect: false,
+        notFoundText: " Nothing found",
+        requestSourceOnOpen: false,
+        preloader: false,
+        routableModals: true,
+        url: "select"
     },
-    "vi": {
-        "enabled": false,
-        "autoplay": true,
-        "fallbackOverlay": true,
-        "fallbackOverlayText": "Please watch this ad",
-        "showMute": true,
-        "startMuted": true,
-        "appId": null,
-        "appVer": null,
-        "language": null,
-        "width": null,
-        "height": null,
-        "placementId": "pltd4o7ibb9rc653x14",
-        "placementType": "interstitial",
-        "videoSlot": null,
-        "showProgress": true,
-        "showBranding": true,
-        "os": null,
-        "osVersion": null,
-        "orientation": null,
-        "age": null,
-        "gender": null,
-        "advertiserId": null,
-        "latitude": null,
-        "longitude": null,
-        "accuracy": null,
-        "storeId": null,
-        "ip": null,
-        "manufacturer": null,
-        "model": null,
-        "connectionType": null,
-        "connectionProvider": null
+    vi: {
+        enabled: false,
+        autoplay: true,
+        fallbackOverlay: true,
+        fallbackOverlayText: "Please watch this ad",
+        showMute: true,
+        startMuted: true,
+        appId: null,
+        appVer: null,
+        language: null,
+        width: null,
+        height: null,
+        placementId: "pltd4o7ibb9rc653x14",
+        placementType: "interstitial",
+        videoSlot: null,
+        showProgress: true,
+        showBranding: true,
+        os: null,
+        osVersion: null,
+        orientation: null,
+        age: null,
+        gender: null,
+        advertiserId: null,
+        latitude: null,
+        longitude: null,
+        accuracy: null,
+        storeId: null,
+        ip: null,
+        manufacturer: null,
+        model: null,
+        connectionType: null,
+        connectionProvider: null
     },
     textEditor: {
         buttons: [
